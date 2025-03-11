@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+.image  {
+  height: 450px;
+  background: url(../images/22.jpeg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:cover;
+  width: 550px;
+  box-shadow: inset  0 0 0 9px rgb(255 255 255 / 30%);
+  order:1;
+  justify-self: center;
+  animation: profile_animate 8s ease-in-out infinite 1s;
+}
+
+@keyframes profile_animate {
+  0%{
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+
+  50%{
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+
+  100%{
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+}
