@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { MdVerified } from "react-icons/md";
 import Angular from "@/images/Skills/Angular.png";
 import Antd from "@/images/Skills/antd.jpeg"
@@ -47,8 +47,7 @@ export default function Skills() {
                 { name: "Bootstrap", level: Bootstrap},
                 { name: "Mantine UI", level: MantineUI},
                 { name: "Framer Motion", level: Framer},
-            ],
-            itemsPerRow: 5
+            ]
         },
         {
             title: "Backend & Database",
@@ -57,8 +56,7 @@ export default function Skills() {
                 { name: "Express.js", level: Express },
                 { name: "MySQL", level: MySQL },
                 { name: "MongoDB", level: MongoDB },
-            ],
-            itemsPerRow: 4
+            ]
         },
         {
             title: "Tools, Testing & Others",
@@ -70,64 +68,57 @@ export default function Skills() {
                 { name: "NPM", level: Npm },
                 { name: "Yarn", level: Yarn },
                 { name: "PNPM", level: Pnpm },
-            ],
-            itemsPerRow: 5
+            ]
         }
     ];
 
     const SkillItem = ({ skill }) => {
-        if (!skill) return <div></div>; // Empty div for alignment when no skill
+        if (!skill) return null;
         
         return (
-            <div className='flex flex-col justify-center items-center rounded-lg overflow-hidden gap-5 shadow-md p-4'>
-                <img src={skill.level.src} alt={skill.name} title={skill.name} className='min-w-[150px] max-w-[250px] h-[125px] rounded-2xl' />
-                <p className="text-gray-900 font-semibold">{skill.name}</p>
+            <div className='flex flex-col justify-center items-center rounded-lg overflow-hidden gap-3 shadow-md p-3 transition-transform hover:scale-105'>
+                <div className="w-full flex justify-center items-center h-24 sm:h-28 md:h-32">
+                    <img 
+                        src={skill.level.src} 
+                        alt={skill.name} 
+                        title={skill.name} 
+                        className='max-w-full max-h-full object-contain rounded-lg' 
+                    />
+                </div>
+                <p className="text-gray-900 font-semibold text-center text-sm sm:text-base">{skill.name}</p>
             </div>
         );
     };
 
-    // Function to split skills into rows based on category configuration
-    const renderSkillsInRows = (skills, itemsPerRow) => {
-        // Use the category-specific itemsPerRow or default to 5
-        const rowSize = itemsPerRow || 5;
-        
-        // Split skills into chunks based on the specified row size
-        const rows = [];
-        for (let i = 0; i < skills.length; i += rowSize) {
-            rows.push(skills.slice(i, i + rowSize));
-        }
-
+    // Responsive grid instead of fixed rows
+    const renderSkillsGrid = (skills) => {
         return (
-            <div className="flex flex-col items-center gap-6">
-                {rows.map((row, rowIndex) => (
-                    <div key={rowIndex} className="flex justify-center gap-6">
-                        {row.map((skill, skillIndex) => (
-                            <SkillItem key={skillIndex} skill={skill} />
-                        ))}
-                    </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4  gap-4">
+                {skills.map((skill, index) => (
+                    <SkillItem key={index} skill={skill} />
                 ))}
             </div>
         );
     };
 
     return (
-        <div className="w-[80%] mx-auto font-sans min-h-screen py-16" id='skills'>
+        <div className="w-full px-4 sm:w-[90%] md:w-[85%] lg:w-[80%] mx-auto font-sans min-h-screen py-8 md:py-16" id='skills'>
             <div className="flex flex-col gap-4 text-center">
-                <h1 className="text-5xl font-semibold">Skills</h1>
-                <p className="text-xl">My Technical Level</p>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold">Skills</h1>
+                <p className="text-lg md:text-xl">My Technical Level</p>
             </div>
             
-            <div className="grid grid-cols-1 gap-8 mt-16">
+            <div className="grid grid-cols-1 gap-8 mt-8 md:mt-16 justify-center items-center w-full">
                 {skillCategories.map((category, categoryIndex) => (
                     <div 
                         key={categoryIndex} 
                         className="flex flex-col gap-5 p-4"
                     >
-                        <div className="text-center p-5">
-                            <h2 className="text-2xl font-bold">{category.title}</h2>
+                        <div className="text-center p-3 md:p-5">
+                            <h2 className="text-xl md:text-2xl font-bold">{category.title}</h2>
                         </div>
-                        <div className="flex justify-center w-full">
-                            {renderSkillsInRows(category.skills, category.itemsPerRow)}
+                        <div className="w-full">
+                            {renderSkillsGrid(category.skills)}
                         </div>
                     </div>
                 ))}
