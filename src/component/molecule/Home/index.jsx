@@ -59,8 +59,7 @@ export default function Home() {
               </div>
               
               <div className="mt-4 md:mt-6 w-full md:w-3/4 lg:w-1/2 text-sm md:text-base">
-                I'm creative designer based in India, and I'm very passinate and
-                dedicates to my work.
+              I'm Frontend Developer with 2 years of React and Next.js expertise. Delivering high-performance, responsive designs that boosted conversion rates by 80%
               </div>
             </div>
             

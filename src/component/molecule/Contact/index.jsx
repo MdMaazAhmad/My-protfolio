@@ -66,7 +66,7 @@ export default function Contact() {
         <Title level={1} className="mb-0 text-2xl sm:text-3xl md:text-4xl">
           Contact Me
         </Title>
-        <Paragraph className="mt-2.5 text-base md:text-lg">
+        <Paragraph className="mt-2.5 2text-xl md:text-lg">
           Get in Touch
         </Paragraph>
       </div>
@@ -150,7 +150,7 @@ export default function Contact() {
         <div className="w-full lg:w-1/2">
           <div className="text-center mb-6">
             <Title level={3} className="text-xl sm:text-2xl">
-              Write me your project
+              Write me 
             </Title>
           </div>
 

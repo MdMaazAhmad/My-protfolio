@@ -12,8 +12,8 @@ export default function Header() {
     { href: "/", label: "Home" },
     { href: "/#about", label: "About", id: "about" },
     { href: "/#skills", label: "Skills", id: "skills" },
-    { href: "/Qualification", label: "Qualification", id: "qualification" },
-    { href: "/Contact", label: "Contact" },
+    { href: "/#Qualification", label: "Qualification", id: "qualification" },
+    { href: "/#Contact", label: "Contact" , id:"contact"},
   ];
 
   const handleClick = (e, href, id) => {
