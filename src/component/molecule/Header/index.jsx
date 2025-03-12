@@ -42,7 +42,7 @@ export default function Header() {
   return (
     <div className="py-4 md:py-6 lg:py-8 w-full font-sans fixed z-10 bg-white shadow-md">
       <div className="w-[90%] md:w-[85%] lg:w-[80%] mx-auto flex items-center justify-between text-[#1d1e20]">
-        <div className="text-lg font-bold">Maaz</div>
+        <div className="text-lg font-bold">Ahmad</div>
         
         {/* Mobile menu button */}
         <button 
